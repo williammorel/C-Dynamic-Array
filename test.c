@@ -43,11 +43,21 @@ int main() {
 
 	printf("Fifth list(add by index):\n");
 	print_list(head);
-	
+
 	swap(&head, 1, 2);
-	
+
 	printf("Sixth list(swap):\n");
 	print_list(head);
+
+  change_val(&head, 7, 2);
+
+  printf("Seventh list(change_val):\n");
+	print_list(head);
+
+  clear_list(head);
+
+  printf("Eigth list(clear_list):\n");
+  print_list(head);
 
   return 0;
 }

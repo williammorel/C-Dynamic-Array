@@ -2,22 +2,18 @@
 #include <stdlib.h>
 #include "test.h"
 
-void print_list(node_t * head)
-{
+void print_list(node_t * head) {
 	node_t * current = head;
 
-	while (current != NULL)
-	{
+	while (current != NULL) {
 		printf("%d: %d: %d\n", current, current->val, current->next);
 		current = current->next;
 	}
 }
 
-int push_end(node_t * head, int val)
-{
+int push_end(node_t * head, int val) {
   node_t * current = head;
-  while (current->next != NULL)
-	{
+  while (current->next != NULL) {
     current = current->next;
   }
 
@@ -28,8 +24,7 @@ int push_end(node_t * head, int val)
 	return val;
 }
 
-int push_beginning(node_t ** head, int val)
-{
+int push_beginning(node_t ** head, int val) {
     node_t * new_node;
     new_node = malloc(sizeof(node_t));
 
@@ -39,15 +34,13 @@ int push_beginning(node_t ** head, int val)
 		return val;
 }
 
-int pop(node_t ** head)
-{
+int pop(node_t ** head) {
     int retval = -1;
     node_t * next_node = NULL;
 
-    if (*head == NULL)
-		{
-        return -1;
-    }
+    if (*head == NULL) {
+		return -1;
+	}
 
     next_node = (*head)->next;
     retval = (*head)->val;
@@ -131,7 +124,7 @@ void swap(node_t ** head, int a, int b) {
 	node_t * second = *head;
 	node_t * temp_node = NULL;
 	temp_node = malloc(sizeof(node_t));
-	
+
 	for (int i = 0; i < a-1; i++) {
 		first = first->next;
 	}
@@ -142,4 +135,38 @@ void swap(node_t ** head, int a, int b) {
 	first->val = second->val;
 	second->val = temp_node->val;
 	free(temp_node);
+}
+
+void clear_list(node_t * head) {
+	node_t * current = head;
+
+	while(head->next != NULL) {
+		while(current->next->next != NULL) {
+			current = current ->next;
+		}
+		free(current->next);
+		current->next = NULL;
+		current = head;
+	}
+
+	free(head);
+	head = NULL;
+}
+
+int change_val(node_t ** head, int a, int n) {
+	node_t * current = *head;
+	int oldval;
+
+	if (n == 0) {
+		oldval = current->val;
+		current->val = a;
+		return oldval;
+	}
+
+	for (int i = 0; i < n-1; i++) {
+		current = current->next;
+	}
+	oldval = current->val;
+	current->val = a;
+	return oldval;
 }
