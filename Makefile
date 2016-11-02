@@ -3,3 +3,6 @@ CFLAGS=-I.
 
 build: test.o test2.o
 	$(CC) -o test test.o test2.o -I.
+
+clean:
+	rm -rf test test.o test2.o
