@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "test.h"
+#include "Functions.h"
 
 void print_list(node_t * head) {
 	node_t * current = head;
@@ -12,30 +12,30 @@ void print_list(node_t * head) {
 }
 
 int push_end(node_t * head, int val) {
-  node_t * current = head;
-  while (current->next != NULL) {
-    current = current->next;
-  }
-
-  /* now we can add a new variable */
-  current->next = malloc(sizeof(node_t));
-  current->next->val = val;
-  current->next->next = NULL;
+	node_t * current = head;
+	while (current->next != NULL) {
+		current = current->next;
+	}
+	
+	/* now we can add a new variable */
+	current->next = malloc(sizeof(node_t));
+	current->next->val = val;
+	current->next->next = NULL;
 	return val;
 }
 
 int push_beginning(node_t ** head, int val) {
-  node_t * new_node;
-  new_node = malloc(sizeof(node_t));
-
-  new_node->val = val;
-  new_node->next = *head;
-  *head = new_node;
+	node_t * new_node;
+	new_node = malloc(sizeof(node_t));
+	
+	new_node->val = val;
+	new_node->next = *head;
+	*head = new_node;
 	return val;
 }
 
 int pop(node_t ** head) {
-	int retval = -1;
+	int retval;
 	node_t * next_node = NULL;
 
 	if (*head == NULL) {
@@ -51,53 +51,53 @@ int pop(node_t ** head) {
 }
 
 int remove_last(node_t * head) {
-  int retval;
-  // if there is only one item in the list, remove it
-  if (head->next == NULL) {
-    retval = head->val;
-    free(head);
-    head = NULL;
-    //head->val = NULL;
-    return retval;
+	int retval;
+	// if there is only one item in the list, remove it
+	if (head->next == NULL) {
+		retval = head->val;
+		free(head);
+		//head = NULL;
+		//head->val = NULL;
+		return retval;
 	}
-
-  node_t * current = head;
-
-  while (current->next->next != NULL) {
-    current = current->next;
-  }
-  retval = current->next->val;
-  free(current->next);
-  current->next = NULL;
-  return retval;
+	
+	node_t * current = head;
+	
+	while (current->next->next != NULL) {
+		current = current->next;
+	}
+	retval = current->next->val;
+	free(current->next);
+	current->next = NULL;
+	return retval;
 }
 
 int remove_by_index(node_t ** head, int n) {
-  int retval = -1;
-  node_t * current = *head;
-  node_t * temp_node = NULL;
+	int retval;
+	node_t * current = *head;
+	node_t * temp_node = NULL;
 	node_t * next_node = NULL;
 
-  if (n == 0) {
+	if (n == 0) {
 		next_node = (*head)->next;
-  	retval = (*head)->val;
-	  free(*head);
-	  *head = next_node;
-  }
+		retval = (*head)->val;
+		free(*head);
+		*head = next_node;
+	} else {
+		for (int i = 0; i < n-1; i++) {
+			if (current->next == NULL) {
+	        return -1;
+	        }
+	        current = current->next;
+		}
+	
+		temp_node = current->next;
+		retval = temp_node->val;
+		current->next = temp_node->next;
+		free(temp_node);
+	}
 
-  for (int i = 0; i < n-1; i++) {
-    if (current->next == NULL) {
-    	return -1;
-    }
-    current = current->next;
-  }
-
-  temp_node = current->next;
-  retval = temp_node->val;
-  current->next = temp_node->next;
-  free(temp_node);
-
-  return retval;
+	return retval;
 }
 
 void add_by_index(node_t ** head, int val, int n) {
@@ -153,7 +153,7 @@ void clear_list(node_t * head) {
 	}
 
 	free(head);
-	head = NULL;
+	//head = NULL;
 }
 
 int change_val(node_t ** head, int a, int n) {
