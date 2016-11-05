@@ -36,10 +36,11 @@ int main() {
 	
 	printf("Fourth list(remove by index):\n");
 	print_list(head);
-	push_end(head, 3);
+	
 	add_by_index(&head, 5, 0);
-	add_by_index(&head, 2, 1);
-
+	add_by_index(&head, 2, 2);
+	add_by_index(&head, 6, 4);
+	
 	printf("Fifth list(add by index):\n");
 	print_list(head);
 
