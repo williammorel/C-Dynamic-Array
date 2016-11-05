@@ -1,8 +1,8 @@
 cc=gcc
 CFLAGS=-I.
 
-build: test.o test2.o
-	$(CC) -o test test.o test2.o -I.
+build: Main.o Functions.o
+	$(CC) -o c_linked_lists Main.o Functions.o -I.
 
 clean:
-	rm -rf test test.o test2.o
+	rm -rf c_linked_lists Main.o Functions.o
