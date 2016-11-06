@@ -1,5 +1,5 @@
-#ifndef TEST_H_INCLUDED
-#define TEST_H_INCLUDED
+#ifndef FUNCTIONS_H_INCLUDED
+#define FUNCTIONS_H_INCLUDED
 
 typedef struct node {
 	int val;
