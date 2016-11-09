@@ -1,4 +1,4 @@
-# c-linked-lists
+# C Dynamic Array
 Fully funtionnal dynamic array implementation program in C using a node struct and add/remove/swap functions.
 
 ## Functions
