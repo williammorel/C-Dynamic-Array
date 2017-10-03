@@ -7,21 +7,25 @@ int highest_val(node_t * head) {
 	node_t * current = head;
 	int max = 0;
 	int index = 0;
-
-	while(head->next != NULL) {
-		while(current->next != NULL) {
-			current = current->next;
-		}
+	while(current->next != NULL) {
 		if(current->val >= max) {
 			max = current->val;
 		}
+		current = current->next;
 	}
-	
+
 	return max;
 }
-/*
+
 int lowest_val(node_t * head) {
 	node_t * current = head;
 	int min = head->val;
-	int index = 0;
-}*/
+	while(current->next != NULL) {
+		if(current->val <= min) {
+			max = current->val;
+		}
+		current = current->next;
+	}
+
+	return min;
+}
