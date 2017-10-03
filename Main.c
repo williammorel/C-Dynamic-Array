@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Functions.h"
+#include "Algo.h"
 
 int main() {
 	node_t * head = NULL;
@@ -54,8 +55,9 @@ int main() {
 	printf("Seventh list(change_val):\n");
 	print_list(head);
 
-	clear_list(head);
+	printf("Highest Value(highest_val)\n%i\n", highest_val(head));
 
+	clear_list(head);
 	printf("Eighth list(clear_list):\n");
 	print_list(head);
 
