@@ -22,7 +22,7 @@ int lowest_val(node_t * head) {
 	int min = head->val;
 	while(current->next != NULL) {
 		if(current->val <= min) {
-			max = current->val;
+			min = current->val;
 		}
 		current = current->next;
 	}
