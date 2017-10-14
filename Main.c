@@ -58,6 +58,7 @@ int main() {
 	printf("Highest Value(highest_val):\n%i\n", highest_val(head));
 	printf("Lowest Value(lowest_val):\n%i\n", lowest_val(head));
 	printf("Average(average_val):\n%i\n", average_val(head));
+	printf("Node Count(node_count):\n%i\n", node_count(head));
 
 	clear_list(head);
 	printf("Eighth list(clear_list):\n");
