@@ -40,7 +40,7 @@ int main() {
 
 	add_by_index(&head, 5, 0);
 	add_by_index(&head, 2, 2);
-	add_by_index(&head, 6, 4);
+	add_by_index(&head, 7, 4);
 
 	printf("Fifth list(add by index):\n");
 	print_list(head);
@@ -50,12 +50,14 @@ int main() {
 	printf("Sixth list(swap):\n");
 	print_list(head);
 
-	change_val(&head, 7, 2);
+	change_val(&head, 3, 2);
 
 	printf("Seventh list(change_val):\n");
 	print_list(head);
 
-	printf("Highest Value(highest_val)\n%i\n", highest_val(head));
+	printf("Highest Value(highest_val):\n%i\n", highest_val(head));
+	printf("Lowest Value(lowest_val):\n%i\n", lowest_val(head));
+	printf("Average(average_val):\n%i\n", average_val(head));
 
 	clear_list(head);
 	printf("Eighth list(clear_list):\n");
