@@ -63,37 +63,11 @@ int node_count(node_t * head) {
 
 	return count;
 }
-
 /*
 int print_sort(node_t * head) {
 	node_t * current = head;
 	node_t * temp = current;
-	int sorted[node_count(current)];
-	sorted[0] = highest_val(current);
-	int index = 0;
-	while(temp->val != sorted[0]) {
-		index += 1;
-		temp = temp->next;
-	}
-	remove_by_index(current, index);
-
-	int count = 0;
-
-	while(count <= node_count(current)) {
-		sorted[count+1] = highest_val(current);
-
-		while(temp->val != sorted[0]) {
-			index += 1;
-			temp = temp->next;
-		}
-		remove_by_index(current, index);
-		index = 0;
-		temp = current;
-	}
-
-	for(int i = 0; i <= count; i++) {
-		printf("%d ", sorted[i]);
-	}
-
-}
-*/
+	
+	int sorted[node_count];
+	
+}*/
